@@ -30,8 +30,7 @@ x = np.linspace(start=-5, stop=15, num=100)
 def norm(x, u, a):
   return (1 / (a * np.sqrt(2 * np.pi))) * np.exp((-np.power(x-u, 2))/(2 * np.power(a, 2)))
 
-u = 5
-ys = [norm(x, u, a) for a in [1, 2, 3]]
+ys = [norm(x, u, a) for u, a in zip([0, 0, 1], [1, 2, 2])]
 
 for y in ys:
   plt.plot(x, y)
