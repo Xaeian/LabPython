@@ -37,6 +37,8 @@ for y in ys:
   plt.plot(x, y)
 ```
 
+<!--
+
 ## Diagnostyka i niezawodność
 
 ```py
@@ -79,3 +81,5 @@ plt.plot(l5)
 plt.ylim(0, 0.1)
 plt.show()
 ````
+
+-->
