@@ -38,11 +38,6 @@ for y in ys:
 
 ## Diagnostyka i niezawodność
 
-```py
-plc = [123, 12, 7, 8, 10, 4, 1, 0, 0, 2, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 2, 7, 12, 10, 18, 20, 20, 12, 50, 180, 80, 110, 43, 63]
-temp = [34, 12, 4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9, 20, 41, 78]
-```
-
 Funkcje oceny niezawodności
 
 - _`f(t)`_ - Gęstość prawdopodobieństwa
@@ -51,9 +46,20 @@ Funkcje oceny niezawodności
 - _`λ(t)`_ - Intensywność uszkodzeń
 - _`Λ(t)`_ - Funkcja wiodąca _(skumulowana intensywność uszkodzeń)_
 
+Wyprodukowaliśmy partię testową sterowników PLC oraz czujników temperatury oraz monitorowaliśmy liczby uszkodzonych urządzeń w każdym z kolejnych miesięcy. Liczby uszkodzonych urządzeń z kolejnych miesięcy zostały umieszczone w liście `plc` dla sterowników oraz w liście `temp` dla czujników.
+
+```py
+plc = [123, 12, 7, 8, 10, 4, 1, 0, 0, 2, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 2, 7, 12, 10, 18, 20, 20, 12, 50, 180, 80, 110, 43, 63]
+temp = [34, 12, 4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9, 20, 41, 78]
+```
+
+### Zadanie 1
+
+Oblicz na podstawie zebranych _(z rynku)_ danych wszystkie funkcje oceny niezawodności.
+
 Kierunek konwersji:
 
-Market → _`f(t)`_ → _`Q(t)`_ → _`R(t)`_ → _`λ(t)`_ → _`Λ(t)`_
+Dane z rynku → _`f(t)`_ → _`Q(t)`_ → _`R(t)`_ → _`λ(t)`_ → _`Λ(t)`_
 
 <!--
 
