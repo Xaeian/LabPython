@@ -198,7 +198,7 @@ sys.Plot()
 plt.show()
 ```
 
-Struktura klasy:
+Struktura klasy _(z obsługą metod)_:
 
 ```py
 class Reliability:
