@@ -93,6 +93,76 @@ temp = [4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9, 4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 
 
 Stwórz klasę, która usprawnie ocenę niezawodności systemów złożonych z znacznie większej ilości obiektów.
 
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.stats as stats
+
+def df(fnc):
+  n = len(fnc)
+  res = np.zeros(n)
+  for i in range(1, n):
+    res[i] = fnc[i] - fnc[i - 1]
+  return res
+
+def integral(fnc):
+  n = len(fnc)
+  res = np.zeros(n)
+  for i in range(1, n):
+    res[i] = res[i - 1] + fnc[i]
+  return res
+
+class DIN:
+  def __init__(self, array):
+    pass
+    # R
+    # Q
+    # f
+    
+  def Parallel(self, him):
+    
+    return DIN([])
+  
+  def Series(self, him):
+    return DIN([])
+  
+  def Print(self):
+    pass
+
+plc = [12, 7, 8, 10, 4, 1, 0, 0, 2, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 2, 7, 12, 10, 18, 20, 20, 12, 50, 180, 80, 110, 43, 63]
+temp = [4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9, 4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9, 4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9]
+
+PLC = DIN(plc)
+TEMP = DIN(plc)
+
+TEMP2 = TEMP.Parallel(TEMP)
+SYS = PLC.Series(TEMP2)
+SYS.Print()
+
+
+fplc = plc / np.sum(plc)
+ftemp = temp / np.sum(temp)
+
+Qplc = integral(fplc)
+Rplc = 1 - Qplc
+
+Qtemp = integral(ftemp)
+Qtemp2 = Qtemp**2
+ftemp2 = df(Qtemp2)
+Rtemp2 = 1 - Qtemp2
+
+Rsys = Rtemp2 * Rplc
+Qsys = 1 - Rsys
+fsys = df(Qsys)
+
+
+plt.plot(fplc)
+plt.plot(ftemp)
+plt.plot(ftemp2)
+plt.plot(fsys)
+plt.show()
+```
+
 <!--
 
 ```py
