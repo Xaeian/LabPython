@@ -64,6 +64,7 @@ Dane z rynku → _`f(t)`_ → _`Q(t)`_ → _`R(t)`_ → _`λ(t)`_ → _`Λ(t)`_
 ```py
 n = len(plc)
 f = plc / np.sum(plc) # funkcja gęstości uszkodzeń
+Q = np.zeros(n) # zawodność
 ```
 
 ### Zadanie 2
