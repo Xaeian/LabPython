@@ -61,6 +61,22 @@ Kierunek konwersji:
 
 Dane z rynku → _`f(t)`_ → _`Q(t)`_ → _`R(t)`_ → _`λ(t)`_ → _`Λ(t)`_
 
+```py
+n = len(plc)
+f = plc / np.sum(plc) # funkcja gęstości uszkodzeń
+Q = np.zeros(n) # zawodność
+for i in range(1, n):
+  Q[i] = Q[i - 1] + f[i]
+```
+
+### Zadanie 2
+
+Zaprojektuj optymalny system złożony ze sterownika PLC i czujnika/czujników oraz wyświetl jego niezawodność w odniesieniu do niezawodności połączenia pojedynczego czujnika ze sterownikiem.
+
+### Zadanie 3
+
+Stwórz klasę, która usprawnie ocenę niezawodności systemów złożonych z znacznie większej ilości obiektów.
+
 <!--
 
 ```py
