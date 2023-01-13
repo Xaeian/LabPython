@@ -43,6 +43,14 @@ plc = [123, 12, 7, 8, 10, 4, 1, 0, 0, 2, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 
 temp = [34, 12, 4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9, 20, 41, 78]
 ```
 
+Funkcje oceny niezawodności
+
+- _`f(t)`_ - Gęstość prawdopodobieństwa
+- _`R(t)`_ - Niezawodność
+- _`Q(t)`_ - Zawodność
+- _`λ(t)`_ - Intensywność uszkodzeń
+- _`Λ(t)`_ - Funkcja wiodąca _(intensywność uszkodzeń)_
+
 <!--
 
 ```py
