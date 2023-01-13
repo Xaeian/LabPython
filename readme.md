@@ -84,6 +84,11 @@ for i in range(1, n):
 
 Zaprojektuj optymalny system złożony ze sterownika PLC i czujnika/czujników oraz wyświetl jego niezawodność w odniesieniu do niezawodności połączenia pojedynczego czujnika ze sterownikiem.
 
+```py
+plc = [12, 7, 8, 10, 4, 1, 0, 0, 2, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 2, 7, 12, 10, 18, 20, 20, 12, 50, 180, 80, 110, 43, 63]
+temp = [12, 4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9, 12, 4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9, 12, 4, 2, 1, 0, 1, 0, 0, 2, 1, 0]
+```
+
 ### Zadanie 3
 
 Stwórz klasę, która usprawnie ocenę niezawodności systemów złożonych z znacznie większej ilości obiektów.
