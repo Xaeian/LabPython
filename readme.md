@@ -63,10 +63,21 @@ Dane z rynku → _`f(t)`_ → _`Q(t)`_ → _`R(t)`_ → _`λ(t)`_ → _`Λ(t)`_
 
 ```py
 n = len(plc)
+
 f = plc / np.sum(plc) # funkcja gęstości uszkodzeń
+
 Q = np.zeros(n) # zawodność
 for i in range(1, n):
   Q[i] = Q[i - 1] + f[i]
+
+R = 1 - Q # niezawodność
+
+l = f / R # intensywność uszkodzeń
+
+L = np.zeros(n) # funkcja wiodąca
+# skumulowana intensywność uszkodzeń
+for i in range(1, n):
+  L[i] = L[i - 1] + l[i]
 ```
 
 ### Zadanie 2
