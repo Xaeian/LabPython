@@ -46,10 +46,14 @@ temp = [34, 12, 4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9, 20, 41, 78]
 Funkcje oceny niezawodności
 
 - _`f(t)`_ - Gęstość prawdopodobieństwa
-- _`R(t)`_ - Niezawodność
 - _`Q(t)`_ - Zawodność
+- _`R(t)`_ - Niezawodność
 - _`λ(t)`_ - Intensywność uszkodzeń
-- _`Λ(t)`_ - Funkcja wiodąca _(intensywność uszkodzeń)_
+- _`Λ(t)`_ - Funkcja wiodąca _(skumulowana intensywność uszkodzeń)_
+
+Kierunek konwersji:
+
+Market → _`f(t)`_ → _`Q(t)`_ → _`R(t)`_ → _`λ(t)`_ → _`Λ(t)`_
 
 <!--
 
