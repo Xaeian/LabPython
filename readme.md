@@ -61,6 +61,8 @@ Kierunek konwersji:
 
 Dane z rynku → _`f(t)`_ → _`Q(t)`_ → _`R(t)`_ → _`λ(t)`_ → _`Λ(t)`_
 
+Rozwiązanie:
+
 ```py
 n = len(plc)
 
@@ -68,7 +70,7 @@ f = plc / np.sum(plc) # funkcja gęstości uszkodzeń
 
 Q = np.zeros(n) # zawodność
 for i in range(1, n):
-  Q[i] = Q[i - 1] + f[i]
+  Q[i] = Q[i] - f[i - 1] if i else f[i]
 
 R = 1 - Q # niezawodność
 
@@ -77,128 +79,152 @@ l = f / R # intensywność uszkodzeń
 L = np.zeros(n) # funkcja wiodąca
 # skumulowana intensywność uszkodzeń
 for i in range(1, n):
-  L[i] = L[i - 1] + l[i]
+  L[i] = L[i] - l[i - 1] if i else l[i]
 ```
 
 ### Zadanie 2
 
-Zaprojektuj optymalny system złożony ze sterownika PLC i czujnika/czujników oraz wyświetl jego niezawodność w odniesieniu do niezawodności połączenia pojedynczego czujnika ze sterownikiem.
+Aby system działa musi sterownik PLC i czujnik muszą być sprawne.
+System musi cechować się dużą niezawodnością przez `2 lata`.
+Produkty _(PLC, czujnik)_ możesz wprowadzać na rynek po dowolnym czasie testów _(wówczas z listy możesz **usunąć** elementy **początkowe**)_.
+Możesz zlecać wymianę produktu _(PLC, czujnik)_ w dowolnym miesiącu _(wówczas z listy możesz **usunąć** elementy **końcowe**, oraz możesz zwielokrotnić dany wektor)
+Ostatecznie wektory muszą być tej samej długości.
+Możesz stosować redundancje.
+Czujnik temperatury stanowi ułamek ceny sterownika PLC.
+Oblicz wypadkową funkcję gęstości uszkodzeń _`f(t)`_ całego systemu.
+Wyświetl ją na wspólnym wykresie wraz z cząstkowymi funkcjami gęstości uszkodzeń w celu porównania.
+
+W przykładowym rozwiązaniu sterowniki PLC były testowane przez `1 miesiąc`, a czujniki temperatury przez `2 miesiące`
+Wymiana czujnika zaplanowana jest na `13 miesiącu` jego pracy _(zatem podczas jednego cyklu życia PLC zużywane będą 3 czujniki)_
+Powstałe wektory:
 
 ```py
-plc = [12, 7, 8, 10, 4, 1, 0, 0, 2, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 2, 7, 12, 10, 18, 20, 20, 12, 50, 180, 80, 110, 43, 63]
-temp = [4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9, 4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9, 4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9]
+plc_base = [123, 12, 7, 8, 10, 4, 1, 0, 0, 2, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 2, 7, 12, 10, 18, 20, 20, 12, 50, 180, 80, 110, 43, 63]
+temp_base = [34, 12, 4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9, 20, 41, 78]
+
+plc_init = plc_base[1:]
+temp_init = 3 * temp_base[2:15]
 ```
 
-### Zadanie 3
-
-Stwórz klasę, która usprawnie ocenę niezawodności systemów złożonych z znacznie większej ilości obiektów.
+Rozwiązanie:
 
 ```py
-import numpy as np
-import matplotlib.pyplot as plt
-import scipy.stats as stats
-
 def df(fnc):
   n = len(fnc)
   res = np.zeros(n)
-  for i in range(1, n):
-    res[i] = fnc[i] - fnc[i - 1]
+  for i in range(0, n):
+    res[i] = fnc[i] - fnc[i - 1] if i else fnc[i]
   return res
 
 def integral(fnc):
   n = len(fnc)
   res = np.zeros(n)
-  for i in range(1, n):
-    res[i] = res[i - 1] + fnc[i]
+  for i in range(0, n):
+    res[i] = res[i - 1] + fnc[i] if i else fnc[i]
   return res
 
-class DIN:
-  def __init__(self, array):
-    pass
-    # R
-    # Q
-    # f
-    
-  def Parallel(self, him):
-    
-    return DIN([])
-  
-  def Series(self, him):
-    return DIN([])
-  
-  def Print(self):
-    pass
+plc_f = plc / np.sum(plc_init)
+temp_f = temp / np.sum(temp_init)
 
-plc = [12, 7, 8, 10, 4, 1, 0, 0, 2, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 2, 7, 12, 10, 18, 20, 20, 12, 50, 180, 80, 110, 43, 63]
-temp = [4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9, 4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9, 4, 2, 1, 0, 1, 0, 0, 2, 1, 0, 0, 8, 9]
+plc_Q = integral(plc_f)
+plc_R = 1 - plc_Q
 
-PLC = DIN(plc)
-TEMP = DIN(plc)
+temp_Q = integral(temp_f)
+temp_x2_Q = temp_Q**2
+temp_x2_f = df(temp_x2_Q)
+temp_x2_R = 1 - temp_x2_Q
 
-TEMP2 = TEMP.Parallel(TEMP)
-SYS = PLC.Series(TEMP2)
-SYS.Print()
+sys_R = temp_x2_R * plc_R
+sys_Q = 1 - sys_R
+sys_f = df(sys_Q)
 
-
-fplc = plc / np.sum(plc)
-ftemp = temp / np.sum(temp)
-
-Qplc = integral(fplc)
-Rplc = 1 - Qplc
-
-Qtemp = integral(ftemp)
-Qtemp2 = Qtemp**2
-ftemp2 = df(Qtemp2)
-Rtemp2 = 1 - Qtemp2
-
-Rsys = Rtemp2 * Rplc
-Qsys = 1 - Rsys
-fsys = df(Qsys)
-
-
-plt.plot(fplc)
-plt.plot(ftemp)
-plt.plot(ftemp2)
-plt.plot(fsys)
+plt.plot(plc_f)
+plt.plot(temp_f)
+plt.plot(temp_x2_f)
+plt.plot(sys_f)
 plt.show()
 ```
 
-<!--
+### Zadanie 3
+
+Stwórz klasę, która usprawni ocenę niezawodności systemów złożonych z znacznie większej ilości obiektów oraz za jej pomocą zrealizuj poprzednie zadanie.
+Na podstawie tej klasy zostaną stworzone obiekty `plc` _(sterownik PLC)_ oraz `temp` _(czujnik temperatury)_
+
+Struktura klasy _(pozbawiona obsługi metod)_
 
 ```py
-n = len(plc)
-f = plc / np.sum(plc) # funkcja gęstości uszkodzeń
-Q = np.zeros(n) # zawodność
-for i in range(1, n):
-  Q[i] = Q[i - 1] + f[i]
-R = 1 - Q # niezawodność
-l = f / R # intensywność uszkodzeń
-
-L = np.zeros(n) # funkcja wiodąca
-# skumulowana intensywność uszkodzeń
-for i in range(1, n):
-  L[i] = L[i - 1] + l[i]
+class Reliability:
+  def __init__(self, init:list|None):
+    if init:
+      #self.f = ...
+      #self.Q = ...
+      #self.R = ...
+      pass  
+    else:
+      self.f, self.Q, self.R = None, None, None
+    
+  def Parallel(self, conn) -> object:
+    new = Reliability()
+    #new.f = ...
+    #new.Q = ...
+    #new.R = ...
+    return new
+  
+  def Series(self, conn) -> object:
+    new = Reliability()
+    #new.f = ...
+    #new.Q = ...
+    #new.R = ...
+    return new
+  
+  def Plot(self, param="f"):
+    plt.plot(self.R) if param == "R" else plt.plot(self.Q) \
+    if param == "Q" else plt.plot(self.f)
 ```
 
-```py
-n2 = len(temp)
-f2 = temp / np.sum(temp)
-Q2 = np.zeros(n2)
-for i in range(1, n2):
-  Q2[i] = Q2[i - 1] + f2[i]
-R2 = 1 - Q2
-l2 = f2 / R2
-```
+Wywołanie:
 
 ```py
-l3 = l[0:36]
-l4 = np.array(list(l2[0:12]) + list(l2[0:12]) + list(l2[0:12]))
-plt.plot(l3)
-plt.plot(l4 * l4)
-l5 = 1 - ((1 - (l4 * l4)) * (1 - l3))
-plt.plot(l5)
-plt.ylim(0, 0.1)
+plc = Reliability(plc_init)
+temp = Reliability(temp_init)
+
+temp2 = temp.Parallel(temp)
+sys = plc.Series(temp2)
+
+plc.Plot()
+temp.Plot()
+temp2.Plot()
+sys.Plot()
 plt.show()
-````
+```
 
--->
+Struktura klasy:
+
+```py
+class Reliability:
+  def __init__(self, init:list|None=None):
+    if init:
+      self.f = init / np.sum(init)
+      self.Q = integral(self.f)
+      self.R = 1 - self.Q
+    else:
+      self.f, self.Q, self.R = None, None, None
+    
+  def Parallel(self, conn) -> object:
+    new = Reliability()
+    new.Q = self.Q * conn.Q
+    new.f = df(new.Q)
+    new.R = 1 - new.Q
+    return new
+  
+  def Series(self, conn) -> object:
+    new = Reliability()
+    new.R = self.R * conn.R
+    new.Q = 1 - new.R
+    new.f = df(new.Q)
+    return new
+  
+  def Plot(self, param="f"):
+    plt.plot(self.R) if param == "R" else plt.plot(self.Q) \
+    if param == "Q" else plt.plot(self.f)
+```
