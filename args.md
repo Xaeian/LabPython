@@ -1,12 +1,38 @@
 # Arguments [➥](./readme.md)
 
-🥉 Napisz skrypt, który pobiera program od użytkownika współczynniki `a`, `b`, `c` _funkcji kwadratowej_ przy pomocy funkcji `input()` oraz zwraca pierwiastki równania. Zwróć uwagę, że dla `a == 0` funkcję trzeba potraktować jak liniową, a jak dodatkowo `b == 0` funkcja będzie stała.
+🥉 Napisz skrypt, który pobiera od użytkownika współczynniki `a`, `b`, `c` _funkcji kwadratowej_ przy pomocy funkcji `input()` oraz zwraca pierwiastki równania. Zwróć uwagę, że dla `a == 0` funkcję trzeba potraktować jak liniową, a jak dodatkowo `b == 0` funkcja będzie stała.
 
 ```py
-# TODO: I'm waiting for a decent code from you guys
+import math
+
+print("a:")
+a = float(input())
+print("b:")
+b = float(input())
+print("c:")
+c = float(input())
+
+if a == 0:
+  if b == 0:
+    if c == 0: print(f"Funkcja stała, nieskończenie wiele pierwiastków")
+    else: print(f"Funkcja stała, brak pierwiastków")
+  else:
+    x = -c/b
+    print(f"Funkcja lioniowa, x = {x}")
+else:
+  delta = b * b - (4 * a * c)
+  if delta < 0:
+    print("Funkcja kwadratowa, brak pierwiastków")
+  elif delta == 0:
+    x = -b / (2 * a)
+    print(f"Funkcja kwadratowa, x = {x}")
+  else:
+    x1 = (-b - math.sqrt(delta)) / (2 * a)
+    x2 = (-b + math.sqrt(delta)) / (2 * a)
+    print(f"Funkcja kwadratowa, x1 = {x1}, x2 = {x2}")
 ```
 
-🥉 Pobierz współczynniki jako argumenty `argv` podczas uruchamiania skryptu przy pomocy modułu `sys`. Po `import sys` argumenty będą dostępne pod `ys.argv`.
+🥉 Pobierz współczynniki jako argumenty `argv` podczas uruchamiania skryptu przy pomocy modułu `sys`. Po `import sys` argumenty będą dostępne pod `sys.argv`.
 
 ```py
 import sys
