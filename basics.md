@@ -1,4 +1,4 @@
-# Podstawy [➥](./readme.md)
+# Basics [➥](./readme.md)
 
 Funkcja `print` jest jedną z maginczych funkcji w języku **Python**, do któej możesz włożyć wszystko.
 Na początek nie zakszodzi włożyć łańcuch znaków `string`
