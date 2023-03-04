@@ -1,6 +1,6 @@
 ## 📒 Content
 
-- [Basics ▶️](./basic.md)  typy, instrukcje warunkowe, pętle, funkcje
+- [Basics ▶️](./basics.md)  typy, instrukcje warunkowe, pętle, funkcje
 - [Arguments ▶️](./args.md) argumenty w skryptach, łańcuchy znaków
 - Klasy 🔜 klasy, obiekty, moduły, przestrzeń nazw
 - [Numpy, Matplotlib ▶️](./np.md) obliczenia i prezentowanie wyników 📌 **`TODO`**
