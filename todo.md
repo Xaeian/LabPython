@@ -1,6 +1,29 @@
-## Zadania
+## 📑 Schedule [➥](./readme.md)
 
-- **1** Napisz skrypt, który pobiera program od użytkownika parametry  współczynniki `a`, `b`, `c` funkcji kwadratowej przy pomocy funkcji `input()` oraz zwraca pierwiastki równania. Zwróć uwagę, że dla `a == 0` funkcję trzeba potraktować jak liniową, a jak dodatkowo `b == 0` funkcja będzie stała.
-  - Pobierz współczynniki jako argumenty `argv` podczas uruchamiania skryptu przy pomocy modułu `sys`
-  - Pobierz od użytkownika łańcuch znaków `str` w formacie `ax^2 + bx + c`. Za pomocą różnych sztuczek manipulacji `string`'ami dobierz się do parametrów `a`, `b`, `c`
-  - Zapewnij dowolność w przekazaniu argumentów przy pomocy biblioteki `argparse`
+- Podstawy
+  - [x] Typy
+  - [x] Instrukcje warunkowe `if`, `match`
+  - [x] Pętle `for`, `while`
+  - [x] Funkcje
+  - [x] Klasy
+  - [ ] Moduły zewnętrzne
+  - [x] Operacje na łańcuchach znaków
+- Praca z danymi
+  - [x] Metody wprowadzania danych `input`, `args`
+  - [ ] Pliki **txt**, **json**, **csv**, **ini**
+  - [ ] Komunikacja z **api**
+  - [ ] Bazy danych **sql**
+  - [x] Biblioteka **pandas** `pd`
+  - [x] Biblioteka **numpy** `np`
+  - [x] Wykresy **matplotlib** `plt`
+  - [x] Notebook **jupyter** `ipynb`
+- Komunikacja z urządzeniami zewnętrznymi
+  - [ ] Serial port
+  - [ ] Modbus RTU
+  - [ ] Mikrokontrolery **STM32**
+- Aplikacje okienkow GUI
+  - [ ] Moduł **Tkinter**
+  - [ ] Biblioteka **Eel**
+- Aplikacje webowe
+  - [ ] Środowisko wirtualne **`venv`**
+  - [ ] Framework **flask**
