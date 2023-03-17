@@ -65,9 +65,7 @@ print("abc:", a, b, c)
 # Calc equation roots
 ```
 
-Zapewnij dowolność w przekazaniu argumentów przy pomocy biblioteki `argparse`.
-
-🥇 Wykorzystaj populatną konwencję, gdzie można agrumenty przekazywać w dowolnej kolejności za pomocą słów kluczwych rozpoczynających się `--` lub sktórów `-`. Przykładowe zapytanie przekazujące `ip` oraz `port` z flagami `print` i `fast`.
+🥇 Zapewnij dowolność w przekazaniu argumentów przy pomocy biblioteki `argparse`. Wykorzystaj populatną konwencję, gdzie można agrumenty przekazywać w dowolnej kolejności za pomocą słów kluczwych rozpoczynających się `--` lub sktórów `-`. Przykładowe zapytanie przekazujące `ip` oraz `port` z flagami `print` i `fast`.
 
 ```bash
 py main --ip 127.0.0.1 --port 7000 --fast --print
