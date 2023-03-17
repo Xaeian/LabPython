@@ -20,7 +20,7 @@ import json
 def csv_load(path:str, delimiter:str=",") -> list:
   return list(csv.DictReader(codecs.open(path, "r", "utf-8")))
 
-def csv_load_data(path:str, delimiter:str=",") -> list:
+def csv_load_data(path:str, delimiter:str=",") -> dict:
   data = csv_load(path, delimiter)
   keys = list(data[0].keys())
   series = {}
@@ -30,4 +30,16 @@ def csv_load_data(path:str, delimiter:str=",") -> list:
     for key in keys:
       series[key] += [row[key]]
   return series
+```
+
+Requests
+
+```py
+import requests
+
+exchange = requests.get("https://api.exchangerate.host/latest", params={"base": "PLN"})
+for name, rate in exchange.json()["rates"].items():
+  print(name, rate)
+
+x = requests.post()
 ```
