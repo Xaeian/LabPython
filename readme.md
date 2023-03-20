@@ -4,7 +4,7 @@
 - [Arguments ▶️](./args.md) argumenty w skryptach, łańcuchy znaków
 - Klasy 🔜 klasy, obiekty, moduły, przestrzeń nazw
 - [Numpy, Matplotlib ▶️](./np.md) obliczenia i prezentowanie wyników
-- [Pandas, Signals ▶️](./np.md) wczytywanie, analiza i zapis danych 📌 **`TODO`**
+- [Pandas, Signals ▶️](./pd.md) wczytywanie, analiza i zapis danych 📌 **`TODO`**
 - [Schedule 📑](./todo.md) tematy do ogarnięcia
 
 Zadania są dzielone na `3` etapy oznaczane ikonami
