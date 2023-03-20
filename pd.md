@@ -26,3 +26,10 @@ b, a = butter(order, [low, high], btype='band')
 serie = lfilter(b, a, serie)
 # filtraacja
 ```
+
+🏅 Jak masz czas i chęci możesz przygotować funkcję, która wczytuje pliki konfiguracyjne [`ini`](https://pl.wikipedia.org/wiki/INI). Miej na uwadzę:
+
+- typy zmiennych
+- sekcje
+- znaki specjalne
+- komentarze
