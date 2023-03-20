@@ -3,7 +3,8 @@
 - [Basics ▶️](./basics.md) typy, instrukcje warunkowe, pętle, funkcje
 - [Arguments ▶️](./args.md) argumenty w skryptach, łańcuchy znaków
 - Klasy 🔜 klasy, obiekty, moduły, przestrzeń nazw
-- [Numpy, Matplotlib ▶️](./np.md) obliczenia i prezentowanie wyników 📌 **`TODO`**
+- [Numpy, Matplotlib ▶️](./np.md) obliczenia i prezentowanie wyników
+- [Pandas, Signals ▶️](./np.md) wczytywanie, analiza i zapis danych 📌 **`TODO`**
 - [Schedule 📑](./todo.md) tematy do ogarnięcia
 
 Zadania są dzielone na `3` etapy oznaczane ikonami
@@ -11,6 +12,7 @@ Zadania są dzielone na `3` etapy oznaczane ikonami
 - 🥉 Musisz zrobić nawet jak jesteś programistyczną ciemnotą
 - 🥈 Lepiej zrób jak chcesz coś więcej niż `3+`
 - 🥇 Jak ogarniasz to i tak zrobisz
+- 🏅 Trudne, więc robisz na własną odpowiedzialność
 
 📌 **`TODO`** oznacza, że tam właśnie czeka takie zadanie do zrobienia
 
