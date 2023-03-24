@@ -32,3 +32,12 @@ class Database:
         cur.close()
         conn.close()
     return ok
+  
+  def getArray(self, sql:str) -> list[tuple]:
+    conn = self.Conn()
+    cur = conn.cursor()
+    cur.execute(sql)
+    res = cur.fetchall()
+    cur.close()
+    conn.close()
+    return res

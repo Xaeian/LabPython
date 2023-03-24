@@ -1,12 +1,7 @@
 from database import Database
 
-
-
-
 DBNAME = "iot"
-
 conn = Database(host="localhost", user="root", password="sqrt")
-
 conn.Exec(f"DROP DATABASE IF EXISTS {DBNAME};")
 conn.Exec(f"CREATE DATABASE {DBNAME};")
 conn.db = DBNAME
@@ -33,6 +28,12 @@ CREATE TABLE data (
   INDEX device_time (device_id, time)
 );         
 """)
+conn.Exec("""
+INSERT INTO devices
+VALUES (NULL, "000000000000000000000000", "Test Device", 1, 5);
+""")
+
+
 
 
 # "CREATE DATABASE databasename;"

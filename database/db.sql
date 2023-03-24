@@ -18,3 +18,12 @@ CREATE TABLE data (
   FOREIGN KEY (device_id) REFERENCES devices(id),
   INDEX device_time (device_id, time)
 );
+
+INSERT INTO devices (uid, name)
+VALUES ('000000000000000000000000', 'Test Device');
+
+INSERT INTO devices
+VALUES (NULL, '000000000000000000000000', 'Test Device', 1, 5);
+
+
+SELECT time, temperature, humidity, voltage
