@@ -6,7 +6,7 @@ from pymysql import Connection as MysqlConn
 # from psycopg2._psycopg import connection as PostgresConn
 
 class Database:
-  def __init__(self, db:str|None, host:str="localhost", user:str="root", password:str="") -> None:
+  def __init__(self, db:str|None=None, host:str="localhost", user:str="root", password:str="") -> None:
     self.host = host
     self.user = user
     self.password = password
