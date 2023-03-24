@@ -1,6 +1,6 @@
 # Pandas, Signals [➥](./readme.md)
 
-🥉 Wczytaj plik z danymi [`data.csv`](./data.csv). Znajdują się w nim pomiary z akcelerometru w osiach **x**, **y**, **z** wykonywane z częstotliwością **6666Hz**. Dadaj na początek kołomęt czasu oraz na koniec kolumnę z przyspieszeniem wypadkowym oraz zapisz całość jako nowy plik `csv` 🚫🐼
+🥉 Wczytaj plik z danymi [`data.csv`](./data.csv). Znajdują się w nim pomiary z akcelerometru w osiach **x**, **y**, **z** wykonywane z częstotliwością **6666Hz**. Dodaj na początek kolumnę czasu oraz na koniec kolumnę z przyspieszeniem wypadkowym oraz zapisz całość jako nowy plik `csv` 🚫🐼
 
 🥈 Oblicz **FFT** dla wszystkich osi, a wyniki zaprezentuj na wykresie oraz zapisz je do pliku. Napisz fragment kodu, który znajduje częstotliwość wiodącą 👍🐼
 
@@ -27,7 +27,7 @@ serie = lfilter(b, a, serie)
 # filtraacja
 ```
 
-🏅 Jak masz czas i chęci możesz przygotować funkcję, która wczytuje pliki konfiguracyjne [`ini`](https://pl.wikipedia.org/wiki/INI). Miej na uwadzę:
+🏅 Jak masz czas i chęci możesz przygotować funkcję, która wczytuje pliki konfiguracyjne [`ini`](https://pl.wikipedia.org/wiki/INI). Miej na uwadze:
 
 - typy zmiennych
 - sekcje
