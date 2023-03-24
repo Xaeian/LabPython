@@ -6,13 +6,13 @@
   - [x] Pętle `for`, `while`
   - [x] Funkcje
   - [x] Klasy
-  - [ ] Moduły zewnętrzne
+  - [x] Moduły zewnętrzne
   - [x] Operacje na łańcuchach znaków
 - Praca z danymi
   - [x] Metody wprowadzania danych `input`, `args`
-  - [ ] Pliki **txt**, **json**, **csv**, **ini**
-  - [ ] Komunikacja z **api**
-  - [ ] Bazy danych **sql**
+  - [x] Pliki **txt**, **json**, **csv**, **ini**
+  - [x] Komunikacja z **api**
+  - [x] Bazy danych **sql**
   - [x] Biblioteka **pandas** `pd`
   - [x] Biblioteka **numpy** `np`
   - [x] Wykresy **matplotlib** `plt`
