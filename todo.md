@@ -22,7 +22,7 @@
   - [ ] Modbus RTU
   - [ ] Mikrokontrolery **STM32**
 - Aplikacje okienkow GUI
-  - [ ] Moduł **Tkinter**
+  - [x] Moduł **Tkinter**
   - [ ] Biblioteka **Eel**
 - Aplikacje webowe
   - [ ] Środowisko wirtualne **`venv`**
