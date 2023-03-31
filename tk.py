@@ -5,8 +5,8 @@ root = tk.Tk()
 root.title()
 root.geometry("190x185")
 
-greeting = tk.Label(text="Data viewer")
-greeting.pack()
+lab = tk.Label(text="Data viewer")
+lab.pack()
 
 vars = []
 for txt in ["Temperatura", "Wilgotność", "Napięcie"]:
